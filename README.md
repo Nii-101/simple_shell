@@ -52,7 +52,7 @@
 
 ### TESTING
 
-	- In interactive mode, the shell should work like this:
+	1. In interactive mode, the shell should work like this:
 
 	$ ./hsh
 	($) /bin/ls
@@ -61,7 +61,7 @@
 	($) exit
 	$
 
-	- In non-interactive mode, the shell should work like this:
+	2. In non-interactive mode, the shell should work like this:
 	echo "/bin/ls" | ./hsh
     	hsh main.c shell.c test_ls_2
     	$
