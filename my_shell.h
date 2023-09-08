@@ -19,7 +19,7 @@
 
 /* PROTOTYPES*/
 int check_if_interactive(void);
-void initiate_odam_interactive(void);
+void initiate_niichar_interactive(void);
 void initiate_odam_non_interactive(void);
 char **parse_command_input(char *command_input, char *odam_separator);
 void perform_actions(char **parsed_arguments);
