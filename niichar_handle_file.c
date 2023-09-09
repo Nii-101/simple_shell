@@ -9,7 +9,7 @@
 void niichar_handle_file(char *file_name)
 {
     char **parsed_command;
-    char niichar_file_buffer[ODAM_MAX_BUFFER_SIZE];
+    char niichar_file_buffer[NIICHAR_MAX_BUFFER_SIZE];
     ssize_t bytes_read;
     int file_handler = open(file_name, O_RDONLY);
 
@@ -27,7 +27,7 @@ void niichar_handle_file(char *file_name)
             if (!niichar_is_white_space(niichar_file_buffer))
             {
                 parsed_command = parse_command_input(niichar_file_buffer,
-                                                    ODAM_TOKEN_SEPARATOR);
+                                                    NIICHAR_TOKEN_SEPARATOR);
                 execute_niichar_command(parsed_command);
                 niichar_free_command_memory(parsed_command);
             }
