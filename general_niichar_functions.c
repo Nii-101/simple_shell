@@ -23,9 +23,9 @@ void execute_niichar_command(char **parsed_command)
 		{"niichar_exit", niichar_exit},
 		{"niichar_env", niichar_env},
 		{"niichar_cd", niichar_cd},
-		{"niichar_echo", niichar_echo};
+		{"niichar_echo", niichar_echo}
 
-	}
+	};
 
 	int niichar_commands_size = sizeof(niichar_commands);
 	int niichar_command_size = sizeof(niichar_commands[0]);
