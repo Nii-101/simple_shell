@@ -1,12 +1,5 @@
 #include "my_shell.h"
 
-/* Define CustomCommand type */
-typedef struct built_in
-	{
-		char *name;
-		Command command;
-	} BuiltIn;
-
 /**
  * check_if_interactive - checks whether shell  is in interactive mode
  * Returns:
