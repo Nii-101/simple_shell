@@ -16,7 +16,7 @@ void perform_actions(char **parsed_arguments)
 	}
 	else
 	{
-		full_command_path = niichar_get_command_path(parsed_arguments[0]);
+		full_command_path = get_command_path(parsed_arguments[0]);
 		niichar_do_system_call(full_command_path, parsed_arguments);
 		free(full_command_path);
 	}

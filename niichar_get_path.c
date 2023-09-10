@@ -1,14 +1,14 @@
 #include "niichar_shell.h"
 
 /**
- * niichar_get_command_path - This function  gets the full  path of command
+ * get_command_path - This function  gets the full  path of command
  *
  * @command: a pointer  to  command string
  *
  * Return: string to full path
  */
 
-char *niichar_get_command_path(char *command)
+char *get_command_path(char *command)
 {
 	char *full_path, *system_path, *copy_of_system_path, *splitted_path;
 
