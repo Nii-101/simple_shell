@@ -1,25 +1,26 @@
-#include "my_shell.h"
+#include "niichar_shell.h"
 
 /**
- * initiate_non_interactive - starts Niichar shell in non-interactive mode
+ *initiate_niichar_non_interactive - Starts the shell in non_interactive mode
+ *
  * Return: void
- */
+ *
+*/
 
-void initiate_non_interactive(void)
+void initiate_niichar_non_interactive(void)
 {
-    char *input;
-    char **commands;
+	char *command_inputs;
+	char **parsed_command;
 
-    while ((input = niichar_read_lines()) != NULL)
-    {
-        if (!niichar_is_whitespace(input))
-        {
-            commands = parse_input(input, NIICHAR_TOKEN_SEPARATOR);
-            if (commands[0][0] != '#')
-                execute_niichar_command(commands);
-            niichar_free_memory(commands);
-        }
-        free(input);
-    }
+	while ((command_inputs = niichar_read_lines()) != NULL)
+	{
+		if (!niichar_is_white_space(command_inputs))
+		{
+			parsed_command = parse_command_input(command_inputs, NIICHAR_TOKEN_SEPARATOR);
+			if (parsed_command[0][0] != '#')
+				execute_niichar_command(parsed_command);
+			niichar_free_command_memory(parsed_command);
+		}
+		free(command_inputs);
+	}
 }
-

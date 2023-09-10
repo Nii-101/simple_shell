@@ -1,4 +1,4 @@
-nclude "shell.h"
+#include "niichar_shell.h"
 
 /**
  * is_niichar_interactive - checks whether shell is in interactive mode
