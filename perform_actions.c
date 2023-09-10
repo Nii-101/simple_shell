@@ -60,9 +60,11 @@ void niichar_do_system_call(char *command_to_execute, char **parsed_arguments)
 }
 
 /**
- * is_niichar_path_available - checks if supplied command path is available
- * @full_command_path: command full path
- * Return: int
+ * is_niichar_path_available - this function checks if the supplied command path is available
+ *
+ * @full_command_path: pulls the command full path
+ *
+ * Return: Returns an integer
  */
 int is_niichar_path_available(char *full_command_path)
 {
@@ -77,9 +79,11 @@ int is_niichar_path_available(char *full_command_path)
 }
 
 /**
- * niichar_write_error - prints error message to stderr
- * @imploded_command: pointer to command as string
- * Return: int
+ * niichar_write_error - this function prints the error message to stderr
+ *
+ * @imploded_command: this function points to command as string
+ *
+ * Return: Returns an integer
  */
 int niichar_write_error(char *imploded_command)
 {

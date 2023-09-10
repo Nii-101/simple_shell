@@ -1,10 +1,13 @@
 #include "niichar_shell.h"
 
 /**
- * niichar_str_tokenizer - splits string into tokens
- * @input_string: pointer to string to tokenize
- * @separator: pointer to delimiters
- * Return: pointer to string of token
+ * niichar_str_tokenizer - This function splits the string into tokens
+ *
+ * @input_string: This is pointer to string to be tokenized
+ *
+ * @separator: this variable is a pointer to delimiters
+ *
+ * Return: Returns a pointer to the string of token
  */
 
 char *niichar_str_tokenizer(char *input_string, const char *separator)
@@ -29,4 +32,3 @@ char *niichar_str_tokenizer(char *input_string, const char *separator)
 	final_word = terminal;
 	return (initial);
 }
-

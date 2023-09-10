@@ -1,13 +1,13 @@
 #include "niichar_shell.h"
 
 /**
- * niichar_implode - This function implodes array of string into one string
+ * niichar_implode - This function implodes array of string into one single string
  *
  * @splitted_tokens: a pointer to  array of  tokens
  *
- * @needle: pointer to needle
+ * @needle: serves as a pointer to the needle
  *
- * Return: pointer to imploded string
+ * Return: Returns a pointer to the imploded string
  */
 
 char *niichar_implode(char **splitted_tokens, char *needle)

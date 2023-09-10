@@ -1,9 +1,9 @@
 #include "niichar_shell.h"
 
 /**
- * niichar_read_lines - function reads lines from a file or stdin
+ * niichar_read_lines - This function reads the lines from a file or a stdin
  *
- * Return: pointer to lines read as string
+ * Return: Returns a pointer to lines read as a string
  */
 
 char *niichar_read_lines(void)

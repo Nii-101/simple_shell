@@ -1,7 +1,7 @@
 #include "niichar_shell.h"
 
 /**
- *initiate_niichar_non_interactive - Starts the shell in non_interactive mode
+ *initiate_niichar_non_interactive - This function starts the shell in a non_interactive mode
  *
  * Return: void
  *
