@@ -1,53 +1,15 @@
-#include "shell.h"
+#include "niichar_shell.h"
 
 /**
- * niichar_handle_file - This function handles passed file
+ * niichar_handle_file - a function that handles passed file
  *
- * @file_name: a pointer  to hold  file_name
+ * @file_name: this is a pointer to hold file_name
  *
  * Return: void
  */
 
 void niichar_handle_file(char *file_name)
 {
-<<<<<<< HEAD
-	char **parsed_command;
-	char niichar_file_buffer[NIICHAR_MAX_BUFFER_SIZE];
-	ssize_t bytes_read;
-	int file_handler = open(file_name, O_RDONLY);
-
-	if (file_handler == -1)
-	{
-		perror("Error opening the file");
-		return;
-	}
-	else
-	{
-
-		while ((bytes_read = read(file_handler,
-						niichar_file_buffer, sizeof(niichar_file_buffer))) > 0)
-		{
-
-			niichar_file_buffer[bytes_read] = '\0';
-			if (!niichar_is_white_space(niichar_file_buffer))
-			{
-				parsed_command = parse_command_input(niichar_file_buffer,
-						NIICHAR_TOKEN_SEPARATOR);
-				execute_niichar_command(parsed_command);
-				niichar_free_command_memory(parsed_command);
-			}
-		}
-
-		if (bytes_read == -1)
-		{
-			perror(niichar_shell_name);
-			close(file_handler);
-			return;
-		}
-	}
-
-	close(file_handler);
-=======
     char **parsed_command;
     char niichar_file_buffer[NIICHAR_MAX_BUFFER_SIZE];
     ssize_t bytes_read;
@@ -60,14 +22,16 @@ void niichar_handle_file(char *file_name)
     }
     else
     {
+
         while ((bytes_read = read(file_handler,
-                                    niichar_file_buffer, sizeof(niichar_file_buffer))) > 0)
+                    niichar_file_buffer, sizeof(niichar_file_buffer))) > 0)
         {
+
             niichar_file_buffer[bytes_read] = '\0';
             if (!niichar_is_white_space(niichar_file_buffer))
             {
                 parsed_command = parse_command_input(niichar_file_buffer,
-                                                    NIICHAR_TOKEN_SEPARATOR);
+                        NIICHAR_TOKEN_SEPARATOR);
                 execute_niichar_command(parsed_command);
                 niichar_free_command_memory(parsed_command);
             }
@@ -82,52 +46,51 @@ void niichar_handle_file(char *file_name)
     }
 
     close(file_handler);
->>>>>>> e52b345144519545a2cc460621fef651a239c8cc
 }
 
 /**
- * niichar_process_file - This function  processes  file
+ * niichar_process_file - it processes file
  *
- * @file_name: a pointer  to filename
+ * @file_name: pointer to a filename
  *
  * Return:void
  */
 void niichar_process_file(char *file_name)
 {
-	char *error_message;
-	struct stat niichar_file_struct;
+    char *error_message;
+    struct stat niichar_file_struct;
 
-	if (access(file_name, F_OK) == -1)
-	{
-		error_message = malloc(NIICHAR_MAX_BUFFER_SIZE * sizeof(char));
+    if (access(file_name, F_OK) == -1)
+    {
+        error_message = malloc(NIICHAR_MAX_BUFFER_SIZE * sizeof(char));
 
-		if (error_message == NULL)
-		{
-			perror(niichar_shell_name);
-			exit(EXIT_FAILURE);
-		}
+        if (error_message == NULL)
+        {
+            perror(niichar_shell_name);
+            exit(EXIT_FAILURE);
+        }
 
-		snprintf(error_message, NIICHAR_MAX_BUFFER_SIZE,
-				"%s: 0: Can't open %s\n",
-				niichar_shell_name, file_name);
+        snprintf(error_message, NIICHAR_MAX_BUFFER_SIZE,
+                "%s: 0: Can't open %s\n",
+                niichar_shell_name, file_name);
 
-		write(STDERR_FILENO, error_message, strlen(error_message));
-		free(error_message);
-		exit(127);
-	}
+        write(STDERR_FILENO, error_message, strlen(error_message));
+        free(error_message);
+        exit(127);
+    }
 
-	if (stat(file_name, &niichar_file_struct) == -1)
-	{
-		perror("Error getting file information");
-		exit(EXIT_FAILURE);
-	}
+    if (stat(file_name, &niichar_file_struct) == -1)
+    {
+        perror("Error getting file information");
+        exit(EXIT_FAILURE);
+    }
 
-	if (niichar_file_struct.st_size == 0)
-	{
-		/* fprintf(stderr, "File is empty\n"); */
-		exit(EXIT_SUCCESS);
-	}
+    if (niichar_file_struct.st_size == 0)
+    {
+        /* fprintf(stderr, "File is empty\n"); */
+        exit(EXIT_SUCCESS);
+    }
 
-	niichar_handle_file(file_name);
+    niichar_handle_file(file_name);
 }
 
