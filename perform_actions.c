@@ -1,100 +1,105 @@
-#include "my_shell.h"
+#include "shell.h"
 
 /**
- * execute_operations - function to execute entered tasks
- * @parsed_args: parsed input arguments
+ * perform_actions - This is a function to execute  entered commands
+ *
+ * @parsed_arguments: a variable parsed  inputted  arguments
  */
-void execute_operations(char **parsed_args)
-{
-    char *full_cmd_path;
 
-    if (is_custom_path_available(parsed_args[0]) == 1)
-    {
-        execute_custom_task(parsed_args[0], parsed_args);
-    }
-    else
-    {
-        full_cmd_path = retrieve_command_path(parsed_args[0]);
-        execute_custom_task(full_cmd_path, parsed_args);
-        free(full_cmd_path);
-    }
+void perform_actions(char **parsed_arguments)
+{
+	char *full_command_path;
+
+	if (is_niichar_path_available(parsed_arguments[0]) == 1)
+	{
+		niichar_do_system_call(parsed_arguments[0], parsed_arguments);
+	}
+	else
+	{
+		full_command_path = niichar_get_command_path(parsed_arguments[0]);
+		niichar_do_system_call(full_command_path, parsed_arguments);
+		free(full_command_path);
+	}
 }
 
 /**
- * execute_custom_task - function to execute custom tasks
- * @command: actual command to execute
- * @parsed_args: parsed input arguments
+ * niichar_do_system_call - a function to execute entered commands
+ *
+ * @command_to_execute: an actual command to be executed
+ *
+ * @parsed_arguments: parsed  inputted arguments
  */
-void execute_custom_task(char *command, char **parsed_args)
+void niichar_do_system_call(char *command_to_execute, char **parsed_arguments)
 {
-    pid_t process_id;
-    char *combined_cmd;
+	pid_t niichar_process_id;
+	char *imploded_command;
 
-    if (command != NULL)
-    {
-        process_id = fork();
-        if (process_id == 0)
-        {
-            execve(command, parsed_args, NULL);
-            perror(niichar_shell_name);
-        }
-        else if (process_id < 0)
-        {
-            perror(strcat(niichar_shell_name, " :1 : "));
-        }
-        else
-        {
-            wait(NULL);
-        }
-    }
-    else
-    {
-        combined_cmd = niichar_implode(parsed_args, " ");
-        niichar_print_error(combined_cmd);
-        free(combined_cmd);
-    }
+	if (command_to_execute != NULL)
+	{
+		niichar_process_id = fork();
+		if (niichar_process_id == 0)
+		{
+			execve(command_to_execute, parsed_arguments, NULL);
+			perror(niichar_shell_name);
+		}
+		else if (niichar_process_id < 0)
+		{
+			perror(strcat(niichar_shell_name, " :1 : "));
+		}
+		else
+		{
+			wait(NULL);
+		}
+	}
+	else
+	{
+		imploded_command = niichar_implode(parsed_arguments, " ");
+		niichar_write_error(imploded_command);
+		free(imploded_command);
+	}
 }
 
 /**
- * is_custom_path_available - checks if provided command path exists
- * @full_cmd_path: full command path
+ * is_niichar_path_available - checks if supplied command path is available
+ * @full_command_path: command full path
  * Return: int
  */
-int is_custom_path_available(char *full_cmd_path)
+int is_niichar_path_available(char *full_command_path)
 {
-    int available = 0;
+	int is_available = 0;
 
-    if (access(full_cmd_path, F_OK) == 0 && access(full_cmd_path, X_OK) == 0)
-    {
-        available = 1;
-    }
-    return (available);
+	if (access(full_command_path, F_OK) == 0 &&
+			access(full_command_path, X_OK) == 0)
+	{
+		is_available = 1;
+	}
+	return (is_available);
 }
 
 /**
- * niichar_print_error - prints error message to stderr
- * @combined_cmd: command as a string
+ * niichar_write_error - prints error message to stderr
+ * @imploded_command: pointer to command as string
  * Return: int
  */
-int niichar_print_error(char *combined_cmd)
+int niichar_write_error(char *imploded_command)
 {
-    char *error_msg;
+	char *error_message;
 
-    error_msg = malloc(NIICHAR_MAX_BUFFER_SIZE * sizeof(char));
+	error_message = malloc(NIICHAR_MAX_BUFFER_SIZE * sizeof(char));
 
-    if (error_msg == NULL)
-    {
-        perror(niichar_shell_name);
-        return (1);
-    }
+	if (error_message == NULL)
+	{
+		perror(niichar_shell_name);
+		return (1);
+	}
 
-    snprintf(error_msg, 1024,
-             "%s: 1: %s: command not found\n",
-             niichar_shell_name, combined_cmd);
+	snprintf(error_message, 1024,
+			"%s: 1: %s: command not found\n",
+			niichar_shell_name, imploded_command);
 
-    write(STDERR_FILENO, error_msg, strlen(error_msg));
-    free(error_msg);
+	write(STDERR_FILENO, error_message, strlen(error_message));
+	free(error_message);
 
-    return (0);
+	return (0);
 }
 
