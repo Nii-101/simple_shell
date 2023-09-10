@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "niichar_shell.h"
 
 /**
  * niichar_free_command_memory - this function frees memory.

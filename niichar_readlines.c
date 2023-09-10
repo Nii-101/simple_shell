@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "niichar_shell.h"
 
 /**
  * niichar_read_lines - function reads lines from a file or stdin

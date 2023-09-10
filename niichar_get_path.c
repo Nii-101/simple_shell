@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "niichar_shell.h"
 
 /**
  * niichar_get_command_path - This function  gets the full  path of command
