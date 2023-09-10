@@ -40,15 +40,18 @@
 ### FILES
 	- hsh : main shell executable file
 	- niichar_shell.h : main header file (contains all prototypes, built-in functions and headers)
-	-
-	-
-	-
-	-
-	-
-	-
-	-
-	-
-	-
+	- main.c : Main entry into the shell
+	- general_niichar_functions.c : Contains the general functions for niichar shell
+	- interactive_niichar_functions.c : Makes sure the shell is able to run in interactive mode
+	- niichar_free_memory.c : Prevents memory leaks by freeing up memory
+	- niichar_get_path.c : Gets the path for commands
+	- niichar_handle_file.c : Handles a passed file
+	- niichar_implode.c : Implodes an array of strings into one string
+	- niichar_readlines.c : Reads lines from a file or stdin
+	- niichar_str_tokenizer.c : Tokenizes strings of commands
+	- non_interactive_niichar_functions.c : Makes sure shell is able to run in non-interactive mode
+	- parse_command_input.c : Parses the command input
+	- perform_actions.c : Contains a function to execute entered commands
 
 ### TESTING
 

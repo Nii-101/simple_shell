@@ -1,9 +1,9 @@
 #include "niichar_shell.h"
 
 /**
- * is_niichar_interactive - checks whether shell is in interactive mode
+ * is_niichar_interactive - Checks whether the shell is in interactive mode
  *
- * Return: 1 or 0 as int
+ * Return: Returns 1 or 0 as integers
  *
  */
 
@@ -13,8 +13,10 @@ int is_niichar_interactive(void)
 }
 
 /**
- * execute_niichar_command - function to execute command
- * @parsed_command: pointer to parsed commands
+ * execute_niichar_command - A function to execute the command
+ *
+ * @parsed_command: A pointer to the parsed commands
+ * 
  * Return: void
  *
  */
@@ -49,13 +51,11 @@ void execute_niichar_command(char **parsed_command)
 }
 
 /**
- * niichar_is_white_space - checks if
+ * niichar_is_white_space - checks if string contains only whitespace characters
  *
- * string contains only whitespace characters
+ * @input_string: A pointer to string to check
  *
- * @input_string: pointer to string to check
- *
- * Return: 1 if whitespace else 0
+ * Return: Returns 1 if there is a whitespace else 0
  *
  */
 

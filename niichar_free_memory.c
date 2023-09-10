@@ -1,9 +1,9 @@
 #include "niichar_shell.h"
 
 /**
- * niichar_free_command_memory - this function frees memory.
+ * niichar_free_command_memory - This function frees memory(prevents memory leaks).
  *
- * @parsed_command: pointer to memory to be freed.
+ * @parsed_command: A pointer to the  memory to be freed.
  *
  * Return: void
  */

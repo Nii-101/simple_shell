@@ -12,8 +12,8 @@ void initiate_niichar_interactive(void)
 	char *command_input;
 	size_t niichar_linecap = 0;
 	int shell_status = 1;
-	ssize_t getline_result;
 	char **parsed_command;
+	ssize_t getline_result;
 
 	while (shell_status == 1)
 	{

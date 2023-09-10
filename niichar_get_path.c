@@ -3,9 +3,9 @@
 /**
  * get_command_path - This function  gets the full  path of command
  *
- * @command: a pointer  to  command string
+ * @command: A pointer  to  command string
  *
- * Return: string to full path
+ * Return: Returns a string to full path
  */
 
 char *get_command_path(char *command)

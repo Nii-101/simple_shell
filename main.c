@@ -1,11 +1,11 @@
 #include "niichar_shell.h"
 
 /**
- *main - main entry to shell
+ *main - The main entry to the shell
  *
- *@argc: argument count
+ *@argv: argument variable or string arguments
  *
- *@argv: string arguments
+ *@argc: Argument count
  *
  * Return: Returns 0 for success
  */

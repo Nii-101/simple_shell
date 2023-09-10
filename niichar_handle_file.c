@@ -1,9 +1,9 @@
 #include "niichar_shell.h"
 
 /**
- * niichar_handle_file - A function that handles passed files
+ * niichar_handle_file - A function that handles parsed files
  *
- * @file_name: A pointer to hold the file_name
+ * @file_name: A pointer to hold the file name
  *
  * Return: void
  */
@@ -53,7 +53,7 @@ void niichar_handle_file(char *file_name)
  *
  * @file_name: A pointer to a filename
  *
- * Return:void
+ * Return: void
  */
 void niichar_process_file(char *file_name)
 {
