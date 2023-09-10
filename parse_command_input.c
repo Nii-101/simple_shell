@@ -1,10 +1,13 @@
-#include "shell.h"
+#include "niichar_shell.h"
 
 /**
- * parse_command_input - separate inputted command into an array of strings
- * @command_input: pointer to command string
- * @niichar_separator: pointer to delimiter
- * Return: pointer that points to the newly parsed array of strings
+ * parse_command_input - function separates inputted command into an array
+ *
+ * @command_input: first pointer to command string
+ *
+ * @niichar_separator: a pointer to a delimiter
+ *
+ * Return: pointer that points to a newly parsed array
  */
 char **parse_command_input(char *command_input, char *niichar_separator)
 {
