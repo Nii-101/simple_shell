@@ -1,73 +1,77 @@
-#include "my_shell.h"
+#include "niichar_shell.h"
 
 /**
- * check_if_interactive - checks whether shell  is in interactive mode
- * Returns:
- *   1 if the shell is in interactive mode
- *   0 if the shell is not in interactive mode
+ * is_niichar_interactive - checks whether shell is in interactive mode
+ *
+ * Return: 1 or 0 as int
+ *
  */
 
-int check_if_interactive(void)
+int is_niichar_interactive(void)
 {
 	return (isatty(STDIN_FILENO));
 }
 
 /**
- * execute_niichar_command - function to execute a niichar command
- * @parsed_command: pointer to parsed niichar commands
- * Returns: void
+ * execute_niichar_command - function to execute command
+ * @parsed_command: pointer to parsed commands
+ * Return: void
+ *
  */
+
 void execute_niichar_command(char **parsed_command)
 {
 	BuiltIn niichar_built_in_functions[4] = {
-		{"niichar_exit", niichar_exit},
-		{"niichar_env", niichar_env},
-		{"niichar_cd", niichar_cd},
-		{"niichar_echo", niichar_echo}
-
+		{"exit", niichar_exit},
+		{"env", niichar_env},
+		{"cd", niichar_cd},
+		{"echo", niichar_echo}
 	};
+	int niichar_built_in_num, is_built_in = 0, niichar_counter = 0;
 
-	int niichar_commands_size = sizeof(niichar_commands);
-	int niichar_command_size = sizeof(niichar_commands[0]);
-	int num_niichar_commands = niichar_commands_size / niichar_command_size;
-	int is_niichar_command = 0;
+	niichar_built_in_num = sizeof(niichar_built_in_functions) /
+		sizeof(niichar_built_in_functions[0]);
 
-	for (int i = 0; i < num_niichar_commands; i++)
+	while (niichar_counter < niichar_built_in_num)
 	{
-		if (strcmp(parsed_command[0], niichar_commands[i].name) == 0)
+		if (strcmp(parsed_command[0],
+					niichar_built_in_functions[niichar_counter].name) == 0)
 		{
-			is_niichar_command = 1;
-			niichar_commands[i].command(parsed_command);
+			is_built_in = 1;
+			niichar_built_in_functions[niichar_counter].command(parsed_command);
 			break;
 		}
+		niichar_counter++;
 	}
 
-	if (!is_niichar_command)
-	{
-		perform_niichar_actions(parsed_command);
-	}
+	if (is_built_in == 0)
+		perform_actions(parsed_command);
 }
 
 /**
- * is_niichar_whitespace - checks if a string contains only niichar whitespace characters
- * @niichar_input_string: pointer to the string to check
- * Returns:
- *   1 if the string contains only niichar whitespace characters
- *   0 if the string contains non-niichar whitespace characters
+ * niichar_is_white_space - checks if
+ *
+ * string contains only whitespace characters
+ *
+ * @input_string: pointer to string to check
+ *
+ * Return: 1 if whitespace else 0
+ *
  */
-int is_niichar_whitespace(char *niichar_input_string)
+
+int niichar_is_white_space(char *input_string)
 {
-	int is_white = 1, counter = 0;
+	int is_white = 1, niichar_counter = 0;
 
-	while (niichar_input_string[counter])
+	while (input_string[niichar_counter])
 	{
-		if (!isspace(niichar_input_string[counter]))
-	{
-		is_white = 0;
-		break;
-	}
+		if (!isspace(input_string[niichar_counter]))
+		{
+			is_white = 0;
+			break;
+		}
 
-		counter++;
+		niichar_counter++;
 	}
 
 	return (is_white);
