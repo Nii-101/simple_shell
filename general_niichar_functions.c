@@ -16,7 +16,7 @@ int is_niichar_interactive(void)
  * execute_niichar_command - A function to execute the command
  *
  * @parsed_command: A pointer to the parsed commands
- * 
+ *
  * Return: void
  *
  */
