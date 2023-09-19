@@ -1,7 +1,7 @@
 #include "niichar_shell.h"
 
 /**
- * parse_command_input - This function separates the inputted command into an array
+ * parse_command_input - This function separates the inputted comm into array
  *
  * @command_input: first pointer variable to command string
  *
