@@ -2,7 +2,7 @@
 
 /**
  *initiate_niichar_non_interactive - This function
- starts the shell in a non_interactive mode
+ *starts the shell in a non_interactive mode
  *
  * Return: void
  *
