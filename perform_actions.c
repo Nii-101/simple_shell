@@ -60,7 +60,8 @@ void niichar_do_system_call(char *command_to_execute, char **parsed_arguments)
 }
 
 /**
- * is_niichar_path_available - this function checks if the supplied command path is available
+ * is_niichar_path_available - this function
+ * checks if the supplied command path is available
  *
  * @full_command_path: pulls the command full path
  *

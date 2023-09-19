@@ -1,7 +1,8 @@
 #include "niichar_shell.h"
 
 /**
- * niichar_implode - This function implodes array of string into one single string
+ * niichar_implode - This function implodes
+ * array of string into one single string
  *
  * @splitted_tokens: a pointer to  array of  tokens
  *

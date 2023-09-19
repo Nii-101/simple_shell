@@ -31,7 +31,7 @@ void initiate_niichar_interactive(void)
 		{
 			if (!niichar_is_white_space(command_input))
 			{
-				parsed_command = parse_command_input(command_input, NIICHAR_TOKEN_SEPARATOR);
+				parsed_command = parse_command_input(command_input, NIICHAR_TKN_SEPARATOR);
 				if (parsed_command[0][0] != '#')
 					execute_niichar_command(parsed_command);
 				niichar_free_command_memory(parsed_command);

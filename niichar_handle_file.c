@@ -31,7 +31,7 @@ void niichar_handle_file(char *file_name)
 			if (!niichar_is_white_space(niichar_file_buffer))
 			{
 				parsed_command = parse_command_input(niichar_file_buffer,
-						NIICHAR_TOKEN_SEPARATOR);
+						NIICHAR_TKN_SEPARATOR);
 				execute_niichar_command(parsed_command);
 				niichar_free_command_memory(parsed_command);
 			}

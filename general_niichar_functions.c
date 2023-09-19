@@ -51,7 +51,8 @@ void execute_niichar_command(char **parsed_command)
 }
 
 /**
- * niichar_is_white_space - checks if string contains only whitespace characters
+ * niichar_is_white_space - checks if string contains
+ *  only whitespace characters
  *
  * @input_string: A pointer to string to check
  *

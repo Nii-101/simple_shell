@@ -3,7 +3,7 @@
 
 #define NIICHAR_TOKEN_BUFFER_SIZE 64
 #define NIICHAR_MAX_BUFFER_SIZE 1024
-#define NIICHAR_TOKEN_SEPARATOR " \n\a\t\r"
+#define NIICHAR_TKN_SEPARATOR " \n\a\t\r"
 
 /* HEADER FILES */
 #include <stdio.h>
