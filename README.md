@@ -5,7 +5,7 @@
 
 	- Nii Odartey E. Lamptey
 
-### _ Permitted Functions and System Calls For Project: 
+### _ Permitted Functions and System Calls For Project:
 	- access
 	- chdir
 	- close

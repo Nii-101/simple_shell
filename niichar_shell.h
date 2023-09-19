@@ -48,10 +48,13 @@ char *niichar_shell_name;
 typedef int (*Command)(char **args);
 
 /**
- *  * struct built_in - a dog's basic info
- *   * @name: name of command
- *    * @command: pointer to command
- *     */
+ *struct built_in - basic info
+ *
+ * @name:is the  name of command
+ *
+ * @command: a pointer to command
+ *
+ */
 typedef struct built_in
 {
 	    char *name;
