@@ -58,7 +58,7 @@ typedef int (*Command)(char **args);
 typedef struct built_in
 {
 	    char *name;
-	        Command command;
+		Command command;
 } BuiltIn;
 
 #endif /* NIICHAR_SHELL_H */
